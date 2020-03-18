@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用axios发ajax请求</title>
+</head>
+<body>
+  <button onclick="testGet()">发送GET请求</button><br>
+  <button onclick="testPost()">发送POST请求</button><br>
+  <button onclick="testPut()">发送PUT请求</button><br>
+  <button onclick="testDelete()">发送Delete请求</button><br>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function testGet() {
+      axios({
+        url:'http://localhost:3000/posts',
+        method:'GET',
+        params:{
+          id:1
+        }
+      }).then(
+          response=>{
+            console.log(response.data)
+          }
+      )
+    }
+    function testPost() {
+      axios({
+        url:'http://localhost:3000/posts',
+        method:'POST',
+        data:{
+          title:'title1111',
+          author:'author1111'
+        }
+      }).then(
+          response=>{
+            console.log(response.data)
+          }
+      )
+    }
+    function testPut() {
+      axios({
+        url:'http://localhost:3000/posts/2',
+        method:'PUT',
+        data:{
+          title:'aaaa',
+          author:'aaaa'
+        }
+      }).then(
+          response=>{
+            console.log(response.data)
+          }
+      )
+    }
+    
+    function testDelete() {
+      axios({
+        url:'http://localhost:3000/posts/2',
+        method:'DELETE',
+        data:{
+          title:'title1111',
+          author:'author1111'
+        }
+      }).then(
+          response=>{
+            console.log(response.data)
+          }
+      )
+    }
+  </script>
+</body>
+</html>
